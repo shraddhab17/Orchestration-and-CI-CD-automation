@@ -22,5 +22,5 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Connect to Kubeflow Pipeline
-      run: python connect_to_kubeflow.py  
+   # - name: Connect to Kubeflow Pipeline
+    #  run: python connect_to_kubeflow.py  
