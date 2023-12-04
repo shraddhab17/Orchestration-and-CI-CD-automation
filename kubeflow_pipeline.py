@@ -1,7 +1,6 @@
 import kfp
 from kfp import dsl
 
-
 def fetch_code_op():
     return dsl.ContainerOp(
         name="Fetch Code",
@@ -14,7 +13,6 @@ def fetch_code_op():
         ],
     )
 
-
 def deploy_op():
     return dsl.ContainerOp(
         name="Deploy",
@@ -22,7 +20,6 @@ def deploy_op():
         command=["kubectl", "apply", "-f", "/src/kubernetes-manifests/"],
         pvolumes={"/src": fetch_code_op().pvolume},
     )
-
 
 @dsl.pipeline(
     name="My pipeline",
@@ -32,7 +29,6 @@ def my_pipeline():
     fetch_code = fetch_code_op()
     deploy = deploy_op()
     deploy.after(fetch_code)
-
 
 if __name__ == "__main__":
     kfp.compiler.Compiler().compile(my_pipeline, "kubeflow-pipeline.zip")
