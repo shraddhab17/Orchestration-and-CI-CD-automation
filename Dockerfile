@@ -23,4 +23,4 @@ COPY app.py phishing.pkl phishing_url_model.ipynb phishing_site_urls.csv ./
 EXPOSE 8000
 
 # Command to run your application
-CMD ["uvicorn", "app:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--root-path", "/"]
