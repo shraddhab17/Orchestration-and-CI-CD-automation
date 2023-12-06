@@ -4,6 +4,9 @@ FROM ubuntu:20.04
 # Set the working directory inside the container
 WORKDIR /app
 
+# Create the output directory
+RUN mkdir output
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y python3 python3-pip curl && \
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && \
