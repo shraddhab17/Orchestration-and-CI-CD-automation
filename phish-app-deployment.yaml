@@ -15,7 +15,7 @@ spec:
       containers:
       - name: phish-app
         image: 871927043079.dkr.ecr.us-east-1.amazonaws.com/kubeflow:latest
-	imagePullPolicy: Always
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
 ---
