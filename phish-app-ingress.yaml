@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: phish-app-ingress
+spec:
+  rules:
+  - host: ab4cba629e82842df92029dda4352d3f-1545613426.us-east-1.elb.amazonaws.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: phish-app-service
+            port:
+              number: 80
