@@ -20,7 +20,7 @@ COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copy the application files into the container
-COPY app.py phishing.pkl phishing_url_model.ipynb phishing_site_urls.csv ./
+COPY . ./
 
 # Expose the port that your application will run on
 EXPOSE 8000
