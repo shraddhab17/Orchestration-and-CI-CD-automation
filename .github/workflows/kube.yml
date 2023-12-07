@@ -43,8 +43,13 @@ jobs:
     - name: Connect to Kubeflow Pipeline
       run: |
         python connect_to_kubeflow.py  # replace with your script
+      # env:
+      #   KUBEFLOW_HOST: https://www.kubeflow.overflowbyte.tech  # Kubeflow host
+      #   KUBEFLOW_EXPERIMENT_ID: abc0d4b6-cea0-4681-a118-2d5715a0db10  #  experiment ID
+      #   KUBEFLOW_PIPELINE_ID: 5eb5350c-77ad-436a-a138-d07a414efbb2  # pipeline ID
+      #   KUBEFLOW_PIPELINE_PARAMS: '{"image": "871927043079.dkr.ecr.us-east-1.amazonaws.com/kubeflow:latest"}'  # pipeline params
       env:
-        KUBEFLOW_HOST: https://www.kubeflow.overflowbyte.tech  # Kubeflow host
-        KUBEFLOW_EXPERIMENT_ID: abc0d4b6-cea0-4681-a118-2d5715a0db10  #  experiment ID
-        KUBEFLOW_PIPELINE_ID: 5eb5350c-77ad-436a-a138-d07a414efbb2  # pipeline ID
-        KUBEFLOW_PIPELINE_PARAMS: '{"image": "871927043079.dkr.ecr.us-east-1.amazonaws.com/kubeflow:latest"}'  # pipeline params
+        URL: ${{ secrets.KBFL_URL }}
+        ENDPOINT: ${{ secrets.KBFL_ENDPOINT }}
+        EMAIL: ${{ secrets.KBFL_LOGIN }}
+        PASSWORD: ${{ secrets.KBFL_PASSWORD }}
