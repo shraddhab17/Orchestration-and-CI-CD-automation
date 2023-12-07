@@ -49,7 +49,7 @@ params = {'image': '871927043079.dkr.ecr.us-east-1.amazonaws.com/kubeflow'}
 authservice_session = 'authservice_session=MTcwMTk2NDkyNXxOd3dBTkVWRFZWRkRTVmxZVGt4TFZrVlZURFpMTTBOWFNVTTJXVkJXTlV4VVdUSkZTRGN6UmxCWlJGUlNXRFpVVWtOUk5GRlVWa0U9fCtfhX73aWl3vWpxqQZ4DX-SvWS31ypeW_xCYA20NT9D'
 
 # Connect to Kubeflow Pipelines Manager
-client = kfp.Client(host=ENDPOINT, cookies=authservice_session)
+client = kfp.Client(host=ENDPOINT, cookies=authservice_session, version='v1beta1')
 
 # Run pipeline
 client.run_pipeline(
