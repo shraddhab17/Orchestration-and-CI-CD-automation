@@ -39,10 +39,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install kfp urllib3 requests requests-toolbelt mechanize bs4 cookiejar
         pip install -r requirements.txt
+        pip show kfp
 
     - name: Connect to Kubeflow Pipeline
       run: |
-        python connect_to_kubeflow.py  # replace with your script
+      # python connect_to_kubeflow.py  # replace with your script
       # env:
       #   KUBEFLOW_HOST: https://www.kubeflow.overflowbyte.tech  # Kubeflow host
       #   KUBEFLOW_EXPERIMENT_ID: abc0d4b6-cea0-4681-a118-2d5715a0db10  #  experiment ID
