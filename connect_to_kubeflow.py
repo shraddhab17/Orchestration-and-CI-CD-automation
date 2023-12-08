@@ -14,8 +14,9 @@ pipeline_params = os.environ.get('KUBEFLOW_PIPELINE_PARAMS')
 pipeline_params_json = json.loads(pipeline_params)
 
 # Create a client that connects to the Kubeflow Pipelines API
-client = Client(host=kubeflow_host)
-
+# client = Client(host=kubeflow_host)
+authservice_session = 'authservice_session=MTcwMTk2NDkyNXxOd3dBTkVWRFZWRkRTVmxZVGt4TFZrVlZURFpMTTBOWFNVTTJXVkJXTlV4VVdUSkZTRGN6UmxCWlJGUlNXRFpVVWtOUk5GRlVWa0U9fCtfhX73aWl3vWpxqQZ4DX-SvWS31ypeW_xCYA20NT9D'
+client = kfp.Client(host=f"http://{ENDPOINT}/pipeline", cookies=authservice_session)
 # Run your pipeline with the specified parameters
 client.run_pipeline(
     experiment_id=experiment_id,
